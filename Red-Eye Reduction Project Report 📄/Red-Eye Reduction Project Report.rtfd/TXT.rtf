@@ -1,0 +1,828 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2870
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica-Bold;\f1\fswiss\fcharset0 Helvetica;\f2\froman\fcharset0 Times-Bold;
+\f3\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww16560\viewh17980\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs24 \cf0 RED-EYE REDUCTION IN DIGITAL PHOTOGRAPHY.
+\f1\b0 \
+
+\f0\b\fs28 Subject
+\f1\b0\fs36 :
+\fs24 Fundamental of Image Processing.\
+
+\f0\b\fs28 A PRACTICAL PROJECT REPORT
+\fs24 .
+\f1\b0 \
+
+\f0\b\fs28 Presented By
+\fs24 :
+\f1\b0 \
+
+\f0\b\fs28 Your Nam
+\fs24 e
+\f1\b0 :Koang Tut Panom Chuol.\
+
+\f0\b\fs28 UID
+\f1\b0\fs24 :24BCS80374.\
+\
+Programming Language:\
+Python\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\tx27161\tx28479\tqr\tx30708\pardirnatural\partightenfactor0
+\cf0 Technologies Used:\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 OpenCV\
+NumPy\
+Matplotlib                         \
+\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f2\b\fs28 \cf0 \expnd0\expndtw0\kerning0
+ABSTRACT.\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f3\b0\fs24 \cf0 Red-eye is a common unwanted effect in digital photographs, especially when a camera flash is used. This project presents a simple red-eye reduction system developed using Python, OpenCV, NumPy, and Matplotlib. The system detects the unwanted red color in the eye region and reduces it using image-processing techniques. The corrected image is then displayed and saved as an output image. The project demonstrates basic concepts of color detection, masking, and image correction in digital image processing.
+\f1 \kerning1\expnd0\expndtw0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 1
+\f0\b . INTRODUCTION.
+\f1\b0 \
+\
+Red-eye is a common unwanted effect in digital photography. It happens when the camera flash reflects from the blood vessels at the back of the eye. This makes the eyes appear red in photographs.\
+\
+This project uses Python and OpenCV to detect the red area in the eye and reduce the unwanted red color. The aim is to make the photograph look more natural.\
+\
+2. 
+\f0\b\fs28 OBJECTIVES.
+\f1\b0 \
+
+\fs24 \
+\'95 To understand the red-eye effect in digital photography.\
+\'95 To detect red-eye in a digital image.\
+\'95 To reduce unwanted red color from the eyes.\
+\'95 To improve the appearance of photographs.\
+\'95 To learn basic image processing using Python and OpenCV.\
+\'95 To develop a simple red-eye reduction system.\
+\
+3. 
+\f0\b\fs28 PROBLEM STATEMENT\
+
+\f1\b0\fs24 \
+Red-eye is an unwanted effect that often appears in photographs taken with a camera flash. It can make the eyes look unnatural and reduce the quality of the photograph.\
+\
+Manually correcting red-eye can take time. Therefore, this project develops a simple image-processing system that detects unwanted red color in the eye region and reduces it automatically.\
+\
+4. 
+\f0\b\fs28 BACKGROUND / LITERATURE REVIEW\
+
+\f1\b0\fs24 \
+Red-eye reduction is a common image-processing technique used in digital photography. The red-eye effect occurs when camera flash reflects from the blood vessels at the back of the eye.\
+\
+Image processing techniques can be used to identify the unwanted red color. HSV color space is useful for separating color information, while masking can help select the affected area. The red color can then be reduced to produce a more natural-looking photograph.\
+\
+5. 
+\f0\b\fs28 METHODOLOGY
+\f1\b0\fs24 \
+The project follows these main steps:\
+\
+1. Input Image\
+2. Image Reading using OpenCV\
+3. Red-Eye Detection using HSV\
+4. Region Selection\
+5. Red-Eye Reduction\
+6. Corrected Image\
+7. Output Image\
+\
+The process starts by loading the photograph. The affected eye region is selected and converted to HSV color space. Red pixels are detected using a color mask. The unwanted red color is then reduced, and the corrected eye is placed back into the original image.\
+\
+6
+\f0\b\fs28 . SYSTEM REQUIREMENTS
+\f1\b0\fs24 \
+Hardware Requirements:\
+\'95 Computer or laptop\
+\'95 Minimum 4 GB RAM\
+\'95 Keyboard and mouse\
+\
+Software Requirements:\
+\'95 macOS\
+\'95 Python 3\
+\'95 OpenCV\
+\'95 NumPy\
+\'95 Matplotlib\
+\'95 TextEdit or VS Code\
+\'95 Terminal\
+\
+Programming Language:\
+Python\
+\
+Libraries Used:\
+OpenCV, NumPy, Matplotlib\
+\
+
+\f0\b 7.
+\fs28  ALGORITHM
+\f1\b0\fs24 \
+\
+1. Start\
+2. Load the input image.\
+3. Select the affected eye region.\
+4. Convert the eye region to HSV color space.\
+5. Detect red pixels.\
+6. Remove small noise from the detected area.\
+7. Reduce the extra red color.\
+8. Put the corrected eye back into the image.\
+9. Save the corrected image.\
+10. Display the original, detected, and corrected images.\
+11. Stop\
+\
+8. 
+\f0\b\fs28 IMPLEMENTATION
+\f1\b0\fs24 \
+\
+The project was implemented using Python with OpenCV, NumPy, and Matplotlib.\
+\
+OpenCV is used to read, process, and save the image. NumPy is used for numerical operations and creating masks. Matplotlib is used to display the original image, red-eye detection, and corrected image.\
+\
+The program detects the unwanted red color in the selected eye region and reduces the red channel. The corrected image is then saved as an output image.\
+\
+9.
+\f0\b\fs28  RESULTS\
+
+\f1\b0\fs24 \
+The project successfully detected the red-eye area in the input photograph and reduced the unwanted red color.\
+The output contains three views:\
+\
+\'95 Original Image \'96 shows the input photograph.\
+\'95 Red-Eye Detection \'96 shows the detected red-eye area.\
+\'95 Corrected Image \'96 shows the photograph after reducing the red-eye effect.\
+\
+The corrected image looks more natural than the original image.\
+\
+10. 
+\f0\b\fs28 PROJECT RESULTS
+\f1\b0\fs24 \
+\
+The following screenshot shows the original image, red-eye detection, and corrected image produced by the project.\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f3 \cf0 \expnd0\expndtw0\kerning0
+{{\NeXTGraphic Screenshot 2026-09-19 at 3.38.35â€¯PM.png \width10720 \height4880 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}
+\f1 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\partightenfactor0
+
+\f2\b\fs28 \cf0 \expnd0\expndtw0\kerning0
+Result:
+\f3\b0\fs24 \
+The project successfully detected the red-eye area and reduced the unwanted red color. The corrected image looks more natural than the original image \
+
+\f1 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f3\fs28 \cf0 \expnd0\expndtw0\kerning0
+11
+\f2\b . ADVANTAGES
+\f3\b0\fs24 \
+\pard\pardeftab720\partightenfactor0
+\cf0 Simple and easy to use.\
+Reduces unwanted red-eye in photographs.\
+Improves the appearance of photographs.\
+Uses Python and free image-processing libraries.\
+Saves the corrected image.\
+Helps understand basic image processing.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\partightenfactor0
+
+\f3\fs28 \cf0 \expnd0\expndtw0\kerning0
+12
+\f2\b . LIMITATIONS
+\f3\b0\fs24 \
+\pard\pardeftab720\partightenfactor0
+\cf0 Works best when the red-eye is clearly visible.\
+Small or faint red areas may be difficult to detect.\
+The current system focuses on a selected eye region.\
+Lighting conditions can affect detection.\
+It is mainly designed for visible red-eye effects.\
+\
+
+\fs28 13
+\f2\b . FUTURE SCOPE
+\f3\b0\fs24 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls1\ilvl0\cf0 \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+Automatic detection of both eyes.\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+Automatic eye localization.\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+Better detection under different lighting conditions.\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+Support for multiple faces in one image.\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+Development of a simple graphical user interface.\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+Real-time red-eye reduction.\
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf0 14
+\f2\b . CONCLUSION
+\f3\b0\fs24 \
+\
+The Red-Eye Reduction in Digital Photography project was successfully developed using Python, OpenCV, NumPy, and Matplotlib.\
+\
+The system detects unwanted red color in the eye region and reduces the red-eye effect. The project demonstrates basic image-processing techniques such as color detection, masking, and image correction.\
+\pard\pardeftab720\partightenfactor0
+\cf0 \outl0\strokewidth0 \strokec2 This project provided practical knowledge of digital image processing and Python programming.\outl0\strokewidth0 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1 \cf0 \kerning1\expnd0\expndtw0 15. 
+\f0\b\fs28 REFERENCES\
+
+\f1\b0\fs24 \
+1. OpenCV Documentation\
+2. Python Documentation\
+3. NumPy Documentation\
+4. Matplotlib Documentation\
+5. Digital Photography and Red-Eye Reduction Concepts\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+}
